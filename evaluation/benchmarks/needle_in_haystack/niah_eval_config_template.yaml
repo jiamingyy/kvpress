@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: Copyright (c) 1993-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+# Template config for running a single Needle-in-a-Haystack (NIAH) experiment.
+# Usage:
+#   cd evaluation
+#   python evaluate.py --config_file ../evaluation/benchmarks/needle_in_haystack/niah_eval_config_template.yaml
+
+output_dir: "./results_niah"
+
+model: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+dataset: "needle_in_haystack"
+data_dir: null
+
+press_name: "no_press"
+compression_ratio: 0.0
+key_channel_compression_ratio: null
+threshold: null
+
+fraction: 1.0
+max_new_tokens: null
+max_context_length: 32768
+query_aware: false
+needle_depth: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+device: null
+fp8: false
+
+model_kwargs:
+  attn_implementation: null
+  dtype: "auto"
